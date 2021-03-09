@@ -13,6 +13,8 @@
 		EF5E8FCA25F7EDF500798AC4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF5E8FC925F7EDF500798AC4 /* Preview Assets.xcassets */; };
 		EF5E8FD325F7EF5400798AC4 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E8FD225F7EF5400798AC4 /* ViewModel.swift */; };
 		EF5E8FD725F7EFD600798AC4 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E8FD625F7EFD600798AC4 /* Temp.swift */; };
+		EF5E8FDF25F7F7DB00798AC4 /* ColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E8FDE25F7F7DB00798AC4 /* ColorButton.swift */; };
+		EF5E8FE625F8002D00798AC4 /* GuessStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E8FE525F8002D00798AC4 /* GuessStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		EF5E8FCB25F7EDF500798AC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF5E8FD225F7EF5400798AC4 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		EF5E8FD625F7EFD600798AC4 /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
+		EF5E8FDE25F7F7DB00798AC4 /* ColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorButton.swift; sourceTree = "<group>"; };
+		EF5E8FE525F8002D00798AC4 /* GuessStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +61,9 @@
 			isa = PBXGroup;
 			children = (
 				EF5E8FC225F7EDEF00798AC4 /* Mastermind_AleixAzuelaApp.swift */,
-				EF5E8FC425F7EDEF00798AC4 /* ContentView.swift */,
-				EF5E8FD225F7EF5400798AC4 /* ViewModel.swift */,
+				EF5E8FDA25F7F6B300798AC4 /* ViewModel */,
 				EF5E8FD525F7EF7A00798AC4 /* Models */,
+				EF5E8FDC25F7F6D100798AC4 /* View */,
 				EF5E8FC625F7EDF500798AC4 /* Assets.xcassets */,
 				EF5E8FCB25F7EDF500798AC4 /* Info.plist */,
 				EF5E8FC825F7EDF500798AC4 /* Preview Content */,
@@ -81,6 +85,24 @@
 				EF5E8FD625F7EFD600798AC4 /* Temp.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EF5E8FDA25F7F6B300798AC4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EF5E8FD225F7EF5400798AC4 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EF5E8FDC25F7F6D100798AC4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EF5E8FDE25F7F7DB00798AC4 /* ColorButton.swift */,
+				EF5E8FE525F8002D00798AC4 /* GuessStack.swift */,
+				EF5E8FC425F7EDEF00798AC4 /* ContentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,8 +176,10 @@
 			files = (
 				EF5E8FC525F7EDEF00798AC4 /* ContentView.swift in Sources */,
 				EF5E8FD325F7EF5400798AC4 /* ViewModel.swift in Sources */,
+				EF5E8FDF25F7F7DB00798AC4 /* ColorButton.swift in Sources */,
 				EF5E8FC325F7EDEF00798AC4 /* Mastermind_AleixAzuelaApp.swift in Sources */,
 				EF5E8FD725F7EFD600798AC4 /* Temp.swift in Sources */,
+				EF5E8FE625F8002D00798AC4 /* GuessStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
