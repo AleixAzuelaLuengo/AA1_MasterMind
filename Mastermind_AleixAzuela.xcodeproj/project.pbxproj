@@ -11,6 +11,8 @@
 		EF5E8FC525F7EDEF00798AC4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E8FC425F7EDEF00798AC4 /* ContentView.swift */; };
 		EF5E8FC725F7EDF500798AC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF5E8FC625F7EDF500798AC4 /* Assets.xcassets */; };
 		EF5E8FCA25F7EDF500798AC4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF5E8FC925F7EDF500798AC4 /* Preview Assets.xcassets */; };
+		EF5E8FD325F7EF5400798AC4 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E8FD225F7EF5400798AC4 /* ViewModel.swift */; };
+		EF5E8FD725F7EFD600798AC4 /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E8FD625F7EFD600798AC4 /* Temp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		EF5E8FC625F7EDF500798AC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF5E8FC925F7EDF500798AC4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF5E8FCB25F7EDF500798AC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF5E8FD225F7EF5400798AC4 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		EF5E8FD625F7EFD600798AC4 /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 			children = (
 				EF5E8FC225F7EDEF00798AC4 /* Mastermind_AleixAzuelaApp.swift */,
 				EF5E8FC425F7EDEF00798AC4 /* ContentView.swift */,
+				EF5E8FD225F7EF5400798AC4 /* ViewModel.swift */,
+				EF5E8FD525F7EF7A00798AC4 /* Models */,
 				EF5E8FC625F7EDF500798AC4 /* Assets.xcassets */,
 				EF5E8FCB25F7EDF500798AC4 /* Info.plist */,
 				EF5E8FC825F7EDF500798AC4 /* Preview Content */,
@@ -67,6 +73,14 @@
 				EF5E8FC925F7EDF500798AC4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EF5E8FD525F7EF7A00798AC4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EF5E8FD625F7EFD600798AC4 /* Temp.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +153,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF5E8FC525F7EDEF00798AC4 /* ContentView.swift in Sources */,
+				EF5E8FD325F7EF5400798AC4 /* ViewModel.swift in Sources */,
 				EF5E8FC325F7EDEF00798AC4 /* Mastermind_AleixAzuelaApp.swift in Sources */,
+				EF5E8FD725F7EFD600798AC4 /* Temp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
