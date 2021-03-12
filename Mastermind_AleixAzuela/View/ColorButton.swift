@@ -8,18 +8,14 @@
 import SwiftUI
 
 struct ColorButton: View {
-    let red: Double
-    let green: Double
-    let blue: Double
-    let opacity: Double
+    let color : Color
+    let action: () -> Void
     
     var body: some View {
-        Button("", action: {  })
+        Button("Hola", action: { action() })
             .frame(width: 30, height: 30, alignment: .center)
             .padding()
-            .background(Color(.sRGB, red: self.red , green: self.green, blue: self.blue, opacity: self.opacity))
-            .foregroundColor(.white)
-            .font(.title)
+            .background(color)
             .cornerRadius(30)
     }
 }

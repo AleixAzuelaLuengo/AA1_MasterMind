@@ -9,20 +9,34 @@ import SwiftUI
 
 struct ContentView: View
 {
+    @ObservedObject var viewModel = MasterMindViewModel()
+    
     var body: some View
     {
         VStack
         {
-            GuessStack(firstGuess: GuessColor(red: 0.5, green: 0.5, blue:0.5, opacity:1)
-                       ,secondGuess: GuessColor(red: 0.5, green: 0.5, blue:0.5, opacity:1)
-                       ,thirdGuess: GuessColor(red: 0.5, green: 0.5, blue:0.5, opacity:1)
-                       ,fourthGuess: GuessColor(red: 0.5, green: 0.5, blue:0.5, opacity:1))
+            GuessStack(firstGuess: self.viewModel.displayRowColor[0][0]
+                       ,secondGuess: self.viewModel.displayRowColor[0][1]
+                       ,thirdGuess: self.viewModel.displayRowColor[0][2]
+                       ,fourthGuess: self.viewModel.displayRowColor[0][3])
             HStack
             {
-                ColorButton(red: 1, green: 0, blue:0, opacity:1 )
-                ColorButton(red: 0, green: 0, blue:0, opacity:1 )
-                ColorButton(red: 0, green: 1, blue:0, opacity:1 )
-                ColorButton(red: 0, green: 0, blue:1, opacity:1 )
+                ColorButton(color : Color.red)
+                {
+                    self.viewModel.AddGuess(colorGuessed: Color.red)
+                }
+                ColorButton(color :Color.black)
+                {
+                    self.viewModel.AddGuess(colorGuessed: Color.black)
+                }
+                ColorButton(color :Color.green)
+                {
+                    self.viewModel.AddGuess(colorGuessed: Color.green)
+                }
+                ColorButton(color :Color.blue)
+                {
+                    self.viewModel.AddGuess(colorGuessed: Color.blue)
+                }
             }
         }
 
