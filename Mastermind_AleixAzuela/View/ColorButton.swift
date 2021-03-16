@@ -13,7 +13,7 @@ struct ColorButton: View {
     
     var body: some View {
         Button("Hola", action: { action() })
-            .frame(width: 30, height: 30, alignment: .center)
+            .frame(width: 20, height: 20, alignment: .center)
             .padding()
             .background(color)
             .cornerRadius(30)

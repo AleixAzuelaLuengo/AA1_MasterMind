@@ -26,27 +26,20 @@ protocol MasterMindViewModelProtocol
 class MasterMindViewModel: MasterMindViewModelProtocol,
                            ObservableObject
 {
-    @Published var displayRowColor: Array<Array<Color>> =
-        Array<Array<Color>>(arrayLiteral: Array<Color>(arrayLiteral: Color.gray,Color.gray,Color.gray,Color.gray),
-                                          Array<Color>(arrayLiteral: Color.gray,Color.gray,Color.gray,Color.gray),
-                                          Array<Color>(arrayLiteral: Color.gray,Color.gray,Color.gray,Color.gray),
-                                          Array<Color>(arrayLiteral: Color.gray,Color.gray,Color.gray,Color.gray),
-                                          Array<Color>(arrayLiteral: Color.gray,Color.gray,Color.gray,Color.gray),
-                                          Array<Color>(arrayLiteral: Color.gray,Color.gray,Color.gray,Color.gray),
-                                          Array<Color>(arrayLiteral: Color.gray,Color.gray,Color.gray,Color.gray),
-                                          Array<Color>(arrayLiteral: Color.gray,Color.gray,Color.gray,Color.gray),
-                                          Array<Color>(arrayLiteral: Color.gray,Color.gray,Color.gray,Color.gray),
-                                          Array<Color>(arrayLiteral: Color.gray,Color.gray,Color.gray,Color.gray),
-                                          Array<Color>(arrayLiteral: Color.gray,Color.gray,Color.gray,Color.gray),
-                                          Array<Color>(arrayLiteral: Color.gray,Color.gray,Color.gray,Color.gray))
+    @Published var displayRowColor: [GuessModel] = Array<GuessModel>()
+
+    
+    @Published var colorRow: [Color] = [.gray, .gray, .gray, .gray]
+    
+    private let defaultColors: [Color] = [.gray, .gray, .gray, .gray]
     
     
-    public var finalGuess: GuessModel =  GuessModel()
-    public var playerGuess: GuessModel =  GuessModel()
+    public var finalGuess: [Color] = [.gray, .gray, .gray, .gray]
+    public var playerGuess: GuessModel = GuessModel()
     private var indexInGuess : Int = 0
     private var round : Int = 0
     private var guessFinished: Bool = false
-    private var colorRow: Array<Color> = Array()
+    
     
     public func GenerateGuess()
     {
@@ -56,33 +49,49 @@ class MasterMindViewModel: MasterMindViewModelProtocol,
             let rand : Int = Int(arc4random() % 4)
             switch rand
             {
-                case 0:
-                    temp.insert(Color.black, at: index)
-                    break;
-                case 1:
-                    temp.insert(Color.green, at: index)
-                    break;
-                case 2:
-                    temp.insert(Color.red, at: index)
-                    break;
-                case 3:
-                    temp.insert(Color.blue, at: index)
-                    break;
-                default:
-                    break;
+            case 0:
+                temp.insert(Color.black, at: index)
+                break;
+            case 1:
+                temp.insert(Color.green, at: index)
+                break;
+            case 2:
+                temp.insert(Color.red, at: index)
+                break;
+            case 3:
+                temp.insert(Color.blue, at: index)
+                break;
+            default:
+                break;
             }
         }
-        finalGuess.guess = temp;
+        finalGuess = temp;
     }
     
     public func CheckPlayerGuess()
     {
-
+        
     }
     
-    public func UpdateCircleColor()
+    public func ResetPlayerGuess()
     {
-         
+        indexInGuess = 0;
+        playerGuess.guess = defaultColors;
+        colorRow = defaultColors;
+    }
+    
+    public func LockInPlayerGuess()
+    {
+        if(indexInGuess >= 3)
+        {
+            CheckPlayerGuess()
+            playerGuess.guessNumber = round + 1;
+            displayRowColor.insert(playerGuess, at: round)
+            playerGuess.guess = defaultColors;
+            colorRow = defaultColors;
+            indexInGuess = 0
+            round += 1
+        }
     }
     
     public func AddGuess(colorGuessed: Color)
@@ -95,13 +104,6 @@ class MasterMindViewModel: MasterMindViewModelProtocol,
         playerGuess.guess.insert(colorGuessed, at: indexInGuess)
         colorRow.insert(colorGuessed, at: indexInGuess)
         indexInGuess += 1
-        if(indexInGuess > 3)
-        {
-            CheckPlayerGuess()
-            displayRowColor.insert(colorRow, at: round)
-            indexInGuess = 0
-            round += 1
-        }
     }
     
     func FinishGame()

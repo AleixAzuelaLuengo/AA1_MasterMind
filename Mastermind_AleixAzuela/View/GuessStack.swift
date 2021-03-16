@@ -16,26 +16,60 @@ struct GuessColorShape: View
     {
         Circle()
             .fill(self.color)
-            .frame(width:62.5, height:62.5)
+            .frame(width:45, height:45)
+    }
+}
+
+struct OutComeColorShape: View
+{
+    let color: Color
+    
+    var body: some View
+    {
+        Circle()
+            .fill(self.color)
+            .frame(width:15, height:15)
+            .border(Color.black, width: 3)
+    }
+}
+
+struct OutCome: View
+{
+    let outCome: Array<Color>
+    
+    var body: some View
+    {
+        VStack
+        {
+            HStack
+            {
+                OutComeColorShape(color: outCome[0])
+                OutComeColorShape(color: outCome[1])
+            }
+            HStack
+            {
+                OutComeColorShape(color: outCome[2])
+                OutComeColorShape(color: outCome[3])
+            }
+        }
     }
 }
 
 
 struct GuessStack: View
 {
-    let firstGuess: Color
-    let secondGuess: Color
-    let thirdGuess: Color
-    let fourthGuess: Color
+    let model: GuessModel
     
     var body: some View
     {
-        HStack
+        HStack(alignment: .center, spacing: 10)
         {
-            GuessColorShape(color: self.firstGuess)
-            GuessColorShape(color: self.secondGuess)
-            GuessColorShape(color: self.thirdGuess)
-            GuessColorShape(color: self.fourthGuess)
+            Text(String(model.guessNumber))
+            GuessColorShape(color: model.guess[0])
+            GuessColorShape(color: model.guess[1])
+            GuessColorShape(color: model.guess[2])
+            GuessColorShape(color: model.guess[3])
+            OutCome(outCome: model.outCome)
         }
     }
 }

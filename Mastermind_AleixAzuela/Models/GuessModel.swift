@@ -7,12 +7,16 @@
 
 import SwiftUI
 
-struct GuessModel
+struct GuessModel : Hashable
 {
+    var guessNumber : Int
     var guess : Array<Color>
+    var outCome: Array<Color>
     internal init()
     {
-        guess = Array<Color>()
+        guessNumber = 0;
+        outCome = Array<Color>(arrayLiteral: Color.white,Color.white,Color.white,Color.white)
+        guess = Array<Color>(arrayLiteral: Color.gray,Color.gray,Color.gray,Color.gray)
     }
 }
 
