@@ -16,6 +16,7 @@
 		EF5E8FE625F8002D00798AC4 /* GuessStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E8FE525F8002D00798AC4 /* GuessStack.swift */; };
 		EF5E8FEB25FBE35400798AC4 /* GuessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E8FEA25FBE35400798AC4 /* GuessModel.swift */; };
 		EF5E8FF826012A5C00798AC4 /* UIPlayerGuessStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E8FF726012A5C00798AC4 /* UIPlayerGuessStack.swift */; };
+		EF5E8FFE26028BAE00798AC4 /* FinishedStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF5E8FFD26028BAE00798AC4 /* FinishedStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		EF5E8FE525F8002D00798AC4 /* GuessStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessStack.swift; sourceTree = "<group>"; };
 		EF5E8FEA25FBE35400798AC4 /* GuessModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessModel.swift; sourceTree = "<group>"; };
 		EF5E8FF726012A5C00798AC4 /* UIPlayerGuessStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPlayerGuessStack.swift; sourceTree = "<group>"; };
+		EF5E8FFD26028BAE00798AC4 /* FinishedStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishedStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				EF5E8FE525F8002D00798AC4 /* GuessStack.swift */,
 				EF5E8FC425F7EDEF00798AC4 /* ContentView.swift */,
 				EF5E8FF726012A5C00798AC4 /* UIPlayerGuessStack.swift */,
+				EF5E8FFD26028BAE00798AC4 /* FinishedStack.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF5E8FC525F7EDEF00798AC4 /* ContentView.swift in Sources */,
+				EF5E8FFE26028BAE00798AC4 /* FinishedStack.swift in Sources */,
 				EF5E8FD325F7EF5400798AC4 /* ViewModel.swift in Sources */,
 				EF5E8FEB25FBE35400798AC4 /* GuessModel.swift in Sources */,
 				EF5E8FF826012A5C00798AC4 /* UIPlayerGuessStack.swift in Sources */,

@@ -22,7 +22,13 @@ struct ContentView: View
                     
                     GuessStack(model: line)
                 }
-                
+                if(viewModel.gameFinished)
+                {
+                    FinishedStack
+                    {
+                        viewModel.FinishGame()
+                    }
+                }
                 
             }
             VStack

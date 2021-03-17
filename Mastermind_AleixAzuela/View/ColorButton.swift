@@ -12,7 +12,7 @@ struct ColorButton: View {
     let action: () -> Void
     
     var body: some View {
-        Button("Hola", action: { action() })
+        Button("    ", action: { action() })
             .frame(width: 20, height: 20, alignment: .center)
             .padding()
             .background(color)

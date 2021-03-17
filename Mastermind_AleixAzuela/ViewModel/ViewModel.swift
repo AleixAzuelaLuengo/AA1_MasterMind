@@ -27,21 +27,20 @@ class MasterMindViewModel: MasterMindViewModelProtocol,
                            ObservableObject
 {
     @Published var displayRowColor: [GuessModel] = Array<GuessModel>()
-
-    
     @Published var colorRow: [Color] = [.gray, .gray, .gray, .gray]
+    @Published var gameFinished: Bool = false
     
     private let defaultColors: [Color] = [.gray, .gray, .gray, .gray]
-    
-    
     public var finalGuess: [Color] = [.gray, .gray, .gray, .gray]
+    var checkedMachine : [Bool] =  [false, false, false, false]
+    var checkedPlayer : [Bool] =  [false, false, false, false]
+    var outPut : [Color] =  [.white, .white, .white, .white]
     public var playerGuess: GuessModel = GuessModel()
     private var indexInGuess : Int = 0
     private var round : Int = 0
-    private var guessFinished: Bool = false
     
     
-    public func GenerateGuess()
+    internal func GenerateGuess()
     {
         var temp : Array<Color> = Array<Color>()
         for index in stride(from: 0, to: 4, by: 1)
@@ -68,13 +67,62 @@ class MasterMindViewModel: MasterMindViewModelProtocol,
         finalGuess = temp;
     }
     
-    public func CheckPlayerGuess()
+    internal func CheckPlayerGuess()
     {
+        for index in stride(from: 0, to: 4, by: 1)
+        {
+            if(playerGuess.guess[index] == finalGuess[index])
+            {
+                checkedMachine[index] = true;
+                checkedPlayer[index] = true;
+                playerGuess.outCome[index] = Color.red;
+            }
+        }
         
+        //Comparem nomes color
+        for index in stride(from: 0, to: 4, by: 1)
+        {
+            for index2 in stride(from: 0, to: 4, by: 1)
+            {
+                if(playerGuess.guess[index] == finalGuess[index2])
+                {
+                    if(!checkedMachine[index2] && !checkedPlayer[index])//error
+                    {
+                        checkedMachine[index2] = true;
+                        checkedPlayer[index] = true;
+                        playerGuess.outCome[index] = Color.yellow;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        var temp : Bool = true;
+        for index in stride(from: 0, to: 4, by: 1)
+        {
+            if(playerGuess.outCome[index] != Color.red)
+            {
+                temp = false;
+            }
+        }
+        gameFinished = temp;
+        print(gameFinished);
+    }
+    
+    private func ResetChecked()
+    {
+        //Reset Checked and OutCome
+        for index in stride(from: 0, to: 4, by: 1)
+        {
+            checkedMachine[index] = false;
+            checkedPlayer[index] = false;
+            playerGuess.outCome[index] = Color.white;
+        }
     }
     
     public func ResetPlayerGuess()
     {
+        //Reset Player Guess
         indexInGuess = 0;
         playerGuess.guess = defaultColors;
         colorRow = defaultColors;
@@ -84,9 +132,15 @@ class MasterMindViewModel: MasterMindViewModelProtocol,
     {
         if(indexInGuess >= 3)
         {
+            if(round == 0)
+            {
+                GenerateGuess()
+                print(finalGuess)
+            }
             CheckPlayerGuess()
             playerGuess.guessNumber = round + 1;
             displayRowColor.insert(playerGuess, at: round)
+            ResetChecked();
             playerGuess.guess = defaultColors;
             colorRow = defaultColors;
             indexInGuess = 0
@@ -97,18 +151,23 @@ class MasterMindViewModel: MasterMindViewModelProtocol,
     public func AddGuess(colorGuessed: Color)
     {
         //First player guess, generate combination
-        if(round == 0)
+        if(indexInGuess < 4)
         {
-            GenerateGuess()
+            playerGuess.guess[indexInGuess] = colorGuessed;
+            colorRow[indexInGuess] =  colorGuessed;
+            indexInGuess += 1
+            
         }
-        playerGuess.guess.insert(colorGuessed, at: indexInGuess)
-        colorRow.insert(colorGuessed, at: indexInGuess)
-        indexInGuess += 1
     }
     
     func FinishGame()
     {
-        
+        //Reset Whole Game
+        ResetPlayerGuess();
+        ResetChecked();
+        round = 0;
+        gameFinished = false;
+        displayRowColor.removeAll()
     }
     
     
