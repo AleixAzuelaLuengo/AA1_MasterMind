@@ -16,6 +16,7 @@ struct UIGuessColorShape: View
         Circle()
             .fill(self.color)
             .frame(width:45, height:45)
+
     }
 }
 

@@ -317,6 +317,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Mastermind_AleixAzuela/Preview Content\"";
+				DEVELOPMENT_TEAM = TKT5KCX79P;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Mastermind_AleixAzuela/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -338,6 +339,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Mastermind_AleixAzuela/Preview Content\"";
+				DEVELOPMENT_TEAM = TKT5KCX79P;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Mastermind_AleixAzuela/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

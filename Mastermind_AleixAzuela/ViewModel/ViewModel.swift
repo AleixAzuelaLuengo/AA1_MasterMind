@@ -29,6 +29,7 @@ class MasterMindViewModel: MasterMindViewModelProtocol,
     @Published var displayRowColor: [GuessModel] = Array<GuessModel>()
     @Published var colorRow: [Color] = [.gray, .gray, .gray, .gray]
     @Published var gameFinished: Bool = false
+    @Published var round: Int = 0
     
     private let defaultColors: [Color] = [.gray, .gray, .gray, .gray]
     public var finalGuess: [Color] = [.gray, .gray, .gray, .gray]
@@ -37,7 +38,6 @@ class MasterMindViewModel: MasterMindViewModelProtocol,
     var outPut : [Color] =  [.white, .white, .white, .white]
     public var playerGuess: GuessModel = GuessModel()
     private var indexInGuess : Int = 0
-    private var round : Int = 0
     
     
     internal func GenerateGuess()
@@ -49,7 +49,7 @@ class MasterMindViewModel: MasterMindViewModelProtocol,
             switch rand
             {
             case 0:
-                temp.insert(Color.black, at: index)
+                temp.insert(Color.yellow, at: index)
                 break;
             case 1:
                 temp.insert(Color.green, at: index)
@@ -111,6 +111,11 @@ class MasterMindViewModel: MasterMindViewModelProtocol,
             }
         }
         gameFinished = temp;
+        
+        if(round == 11)
+        {
+            gameFinished = true;
+        }
     }
     
     private func ResetChecked()
@@ -134,7 +139,7 @@ class MasterMindViewModel: MasterMindViewModelProtocol,
     
     public func LockInPlayerGuess()
     {
-        if(indexInGuess >= 3)
+        if(indexInGuess > 3 && !gameFinished)
         {
             if(round == 0)
             {

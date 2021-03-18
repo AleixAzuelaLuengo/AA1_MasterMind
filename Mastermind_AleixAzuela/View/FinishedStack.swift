@@ -10,13 +10,21 @@ import SwiftUI
 
 struct FinishedStack: View
 {
+    let round : Int
     let action: () -> Void
     
     var body: some View
     {
         VStack(alignment: .center, spacing: 10)
         {
-            Text(String("You won!")).padding()
+            if(round < 12)
+            {
+                Text(String("You won!")).padding()
+            }
+            else
+            {
+                Text(String("You Lost :(")).padding()
+            }
             Button("Reset", action: { action() })
                 .frame(width: 100, height: 50, alignment: .center)
                 .background(Color.white)

@@ -24,10 +24,12 @@ struct ContentView: View
                 }
                 if(viewModel.gameFinished)
                 {
-                    FinishedStack
-                    {
+                    FinishedStack(round: viewModel.round,
+                                  action:
+                                    {
                         viewModel.FinishGame()
-                    }
+                                    }
+                    )
                 }
                 
             }
@@ -51,9 +53,9 @@ struct ContentView: View
                     {
                         self.viewModel.AddGuess(colorGuessed: Color.red)
                     }
-                    ColorButton(color :Color.black)
+                    ColorButton(color :Color.yellow)
                     {
-                        self.viewModel.AddGuess(colorGuessed: Color.black)
+                        self.viewModel.AddGuess(colorGuessed: Color.yellow)
                     }
                     ColorButton(color :Color.green)
                     {

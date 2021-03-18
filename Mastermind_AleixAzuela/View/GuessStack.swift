@@ -29,7 +29,6 @@ struct OutComeColorShape: View
         Circle()
             .fill(self.color)
             .frame(width:15, height:15)
-            .border(Color.black, width: 3)
     }
 }
 
