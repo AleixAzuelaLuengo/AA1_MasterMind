@@ -69,13 +69,17 @@ class MasterMindViewModel: MasterMindViewModelProtocol,
     
     internal func CheckPlayerGuess()
     {
+        var indexOutCome : Int = 0
+        //Comparemm color i poosicio
         for index in stride(from: 0, to: 4, by: 1)
         {
             if(playerGuess.guess[index] == finalGuess[index])
             {
                 checkedMachine[index] = true;
                 checkedPlayer[index] = true;
-                playerGuess.outCome[index] = Color.red;
+                playerGuess.outCome[indexOutCome] = Color.red;
+                indexOutCome += 1
+                
             }
         }
         
@@ -90,7 +94,8 @@ class MasterMindViewModel: MasterMindViewModelProtocol,
                     {
                         checkedMachine[index2] = true;
                         checkedPlayer[index] = true;
-                        playerGuess.outCome[index] = Color.yellow;
+                        playerGuess.outCome[indexOutCome] = Color.yellow
+                        indexOutCome += 1
                         break;
                     }
                 }
@@ -106,7 +111,6 @@ class MasterMindViewModel: MasterMindViewModelProtocol,
             }
         }
         gameFinished = temp;
-        print(gameFinished);
     }
     
     private func ResetChecked()
@@ -116,7 +120,7 @@ class MasterMindViewModel: MasterMindViewModelProtocol,
         {
             checkedMachine[index] = false;
             checkedPlayer[index] = false;
-            playerGuess.outCome[index] = Color.white;
+            playerGuess.outCome[index] = Color.white
         }
     }
     
@@ -135,7 +139,6 @@ class MasterMindViewModel: MasterMindViewModelProtocol,
             if(round == 0)
             {
                 GenerateGuess()
-                print(finalGuess)
             }
             CheckPlayerGuess()
             playerGuess.guessNumber = round + 1;
